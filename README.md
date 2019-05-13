@@ -36,6 +36,7 @@ j.super()
 
 #### To
 ```js
+super
 ```
 
 
@@ -109,11 +110,14 @@ j.metaProperty()
 
 #### From
 ```js
-j.parenthesizedExpression()
+const parenExp = j.expressionStatement(
+    j.parenthesizedExpression(j.callExpression(j.identifier("foo"), []))
+);
 ```
 
 #### To
 ```js
+(foo());
 ```
 
 
@@ -122,11 +126,28 @@ j.parenthesizedExpression()
 
 #### From
 ```js
-j.importSpecifier()
+const j = api.jscodeshift;
+const body = root.get().value.program.body;
+
+const barImport = j.importDeclaration(
+    [j.importSpecifier(j.identifier('foo'),j.identifier('bar'))],
+    j.literal('lib')
+    );
+
+const fooImport = j.importDeclaration(
+    [j.importSpecifier(j.identifier('foo'))],
+    j.literal('lib')
+    );
+
+body.unshift(barImport);
+body.unshift(fooImport);
+
 ```
 
 #### To
 ```js
+import { foo as bar } from "lib";
+import { foo } from "lib";
 ```
 
 
@@ -135,11 +156,20 @@ j.importSpecifier()
 
 #### From
 ```js
-j.importDefaultSpecifier()
+const j = api.jscodeshift;
+const body = root.get().value.program.body;
+
+const defaultImport = j.importDeclaration(
+    [j.importDefaultSpecifier( j.identifier("foo"))],
+    j.literal("foo")
+);
+
+body.unshift(defaultImport);
 ```
 
 #### To
 ```js
+import foo from "foo";
 ```
 
 
@@ -374,6 +404,7 @@ j.nullLiteral()
 
 #### To
 ```js
+null
 ```
 
 
@@ -382,11 +413,14 @@ j.nullLiteral()
 
 #### From
 ```js
-j.booleanLiteral()
+j.booleanLiteral(true)
+j.booleanLiteral(false)
 ```
 
 #### To
 ```js
+true
+false
 ```
 
 
