@@ -110,7 +110,7 @@ j.metaProperty()
 
 #### From
 ```js
-const parenExp = j.expressionStatement(
+j.expressionStatement(
     j.parenthesizedExpression(j.callExpression(j.identifier("foo"), []))
 );
 ```
@@ -127,6 +127,7 @@ const parenExp = j.expressionStatement(
 #### From
 ```js
 const j = api.jscodeshift;
+const root = j(file.source);
 const body = root.get().value.program.body;
 
 const barImport = j.importDeclaration(
@@ -157,6 +158,7 @@ import { foo } from "lib";
 #### From
 ```js
 const j = api.jscodeshift;
+const root = j(file.source);
 const body = root.get().value.program.body;
 
 const defaultImport = j.importDeclaration(
@@ -191,11 +193,24 @@ j.importNamespaceSpecifier()
 
 #### From
 ```js
-j.exportDefaultDeclaration()
+const j = api.jscodeshift;
+const root = j(file.source);
+const body = root.get().value.program.body;
+
+const expDef = j.exportDefaultDeclaration(
+  j.classDeclaration(
+    j.identifier('MyComponent'),
+    j.classBody([]),
+    j.identifier('ReactComponent')
+  )
+);
+
+body.push(expDef);
 ```
 
 #### To
 ```js
+export default class MyComponent extends ReactComponent {}
 ```
 
 
@@ -360,11 +375,12 @@ j.program()
 
 #### From
 ```js
-j.stringLiteral()
+j.stringLiteral("hello")
 ```
 
 #### To
 ```js
+"hello"
 ```
 
 
@@ -373,11 +389,12 @@ j.stringLiteral()
 
 #### From
 ```js
-j.numericLiteral()
+j.numericLiteral(99)
 ```
 
 #### To
 ```js
+99
 ```
 
 
@@ -386,11 +403,12 @@ j.numericLiteral()
 
 #### From
 ```js
-j.bigIntLiteral()
+j.bigIntLiteral(10)
 ```
 
 #### To
 ```js
+10n
 ```
 
 
