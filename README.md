@@ -43,13 +43,28 @@ super
 
 ### BindExpression
 
+[Reference](https://github.com/jhgg/js-transforms/blob/master/bind-this-to-bind-expression.js)
+
 #### From
 ```js
-j.bindExpression()
+const j = api.jscodeshift;
+const root = j(file.source);
+const body = root.get().value.program.body;
+
+const varDec2 = j.variableDeclaration(
+  "let", 
+  [j.variableDeclarator(
+  j.identifier("b"), 
+  j.bindExpression(null,j.memberExpression(j.thisExpression(),j.identifier('foo'),false))
+)]);
+
+body.push(varDec2);
 ```
 
 #### To
 ```js
+// let c = this.foo.bind(this);
+let c = ::this.foo;
 ```
 
 
