@@ -1,4 +1,17 @@
 #!/bin/sh
+#
+# SCRIPT: write-md.sh
+# AUTHOR: Rajasegar Chandran
+# DATE: 21 May 2019
+#
+# PLATFORM: Unix and OSX, not checked in Windows
+#
+# PURPOSE: 
+# This script is to generate the markdown files from the Typescript definitions
+# This will read each top-level definition (def) from the spec file and create corresponding
+# example in the markdown file
+#
+# USAGE: $ ./write-md.sh babel-core.ts
 
 writeExample() {
   # Lowercase first letter
@@ -23,13 +36,15 @@ EOM
 
 main() {
   INPUT_FILE=$1
-  echo $INPUT_FILE 
+  echo Reading $INPUT_FILE ...
   INPUT_FILE_NAME=$(basename $INPUT_FILE .ts)
-  echo $INPUT_FILE_NAME
+  #echo $INPUT_FILE_NAME
   DEFINITIONS=$(sed -n '/^[ ]*def([a-zA-Z"]*)$/p' $INPUT_FILE | sed -n 's/def//;s/(//;s/"//g;s/)//p') 
   for i in $DEFINITIONS; do
+    echo Writing definition: $i ...
     writeExample "$INPUT_FILE_NAME.md" $i
   done
+  echo "$INPUT_FILE_NAME.md" - Markdown file generated successfully
 }
 
 
