@@ -40,11 +40,14 @@ main() {
   INPUT_FILE_NAME=$(basename $INPUT_FILE .ts)
   #echo $INPUT_FILE_NAME
   DEFINITIONS=$(sed -n '/^[ ]*def([a-zA-Z"]*)$/p' $INPUT_FILE | sed -n 's/def//;s/(//;s/"//g;s/)//p') 
+  COUNTER=0
   for i in $DEFINITIONS; do
     echo Writing definition: $i ...
     writeExample "$INPUT_FILE_NAME.md" $i
+    ((COUNTER++))
   done
-  echo "$INPUT_FILE_NAME.md" - Markdown file generated successfully
+  echo Total No. of definitions written: $COUNTER
+  echo Markdown file generated successfully
 }
 
 
