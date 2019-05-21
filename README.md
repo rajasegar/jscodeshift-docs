@@ -43,8 +43,9 @@ super
 
 ### BindExpression
 
-[Codemod Reference](https://github.com/jhgg/js-transforms/blob/master/bind-this-to-bind-expression.js)
-[Javascript ES7 Function Bind Syntax](http://blog.jeremyfairbank.com/javascript/javascript-es7-function-bind-syntax/)
+- [Codemod Reference](https://github.com/jhgg/js-transforms/blob/master/bind-this-to-bind-expression.js)
+
+- [Javascript ES7 Function Bind Syntax](http://blog.jeremyfairbank.com/javascript/javascript-es7-function-bind-syntax/)
 
 #### From
 ```js
