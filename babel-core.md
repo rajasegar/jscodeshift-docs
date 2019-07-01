@@ -1,5 +1,14 @@
 ## babel-core
 
+All the below code snippets assume that you have the jscodeshift api loaded like below:
+
+```js
+const j = api.jscodeshift;
+const root = j(file.source);
+```
+
+And using `j` global variable you can access the api.
+
 ### Noop
 
 #### From
@@ -46,8 +55,6 @@ super
 
 #### From
 ```js
-const j = api.jscodeshift;
-const root = j(file.source);
 const body = root.get().value.program.body;
 
 const varDec2 = j.variableDeclaration(
@@ -140,8 +147,6 @@ j.expressionStatement(
 
 #### From
 ```js
-const j = api.jscodeshift;
-const root = j(file.source);
 const body = root.get().value.program.body;
 
 const barImport = j.importDeclaration(
@@ -171,8 +176,6 @@ import { foo } from "lib";
 
 #### From
 ```js
-const j = api.jscodeshift;
-const root = j(file.source);
 const body = root.get().value.program.body;
 
 const defaultImport = j.importDeclaration(
@@ -207,8 +210,6 @@ j.importNamespaceSpecifier()
 
 #### From
 ```js
-const j = api.jscodeshift;
-const root = j(file.source);
 const body = root.get().value.program.body;
 
 const expDef = j.exportDefaultDeclaration(

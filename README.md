@@ -9,11 +9,11 @@ helpful to write codemods.
 
 ## APIs 
 
-- [https://github.com/rajasegar/jscodeshift-docs/blob/master/babel-core.md](babel-core)
-- [https://github.com/rajasegar/jscodeshift-docs/blob/master/core.md](core)
-- [https://github.com/rajasegar/jscodeshift-docs/blob/master/es-proposals.md](es-proposals)
-- [https://github.com/rajasegar/jscodeshift-docs/blob/master/es6.md](es6)
-- [https://github.com/rajasegar/jscodeshift-docs/blob/master/es7.md](es7)
+- [babel-core](https://github.com/rajasegar/jscodeshift-docs/blob/master/babel-core.md)
+- [core](https://github.com/rajasegar/jscodeshift-docs/blob/master/core.md)
+- [es-proposals](https://github.com/rajasegar/jscodeshift-docs/blob/master/es-proposals.md)
+- [es6][https://github.com/rajasegar/jscodeshift-docs/blob/master/es6.md]
+- [es7][https://github.com/rajasegar/jscodeshift-docs/blob/master/es7.md]
 
 ## Reference
- - [https://github.com/facebook/jscodeshift](jscodeshift)
+ - [jscodeshift](https://github.com/facebook/jscodeshift)
