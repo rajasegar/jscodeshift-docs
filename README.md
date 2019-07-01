@@ -12,8 +12,11 @@ helpful to write codemods.
 - [babel-core](https://github.com/rajasegar/jscodeshift-docs/blob/master/babel-core.md)
 - [core](https://github.com/rajasegar/jscodeshift-docs/blob/master/core.md)
 - [es-proposals](https://github.com/rajasegar/jscodeshift-docs/blob/master/es-proposals.md)
-- [es6][https://github.com/rajasegar/jscodeshift-docs/blob/master/es6.md]
-- [es7][https://github.com/rajasegar/jscodeshift-docs/blob/master/es7.md]
+- [es6](https://github.com/rajasegar/jscodeshift-docs/blob/master/es6.md)
+- [es7](https://github.com/rajasegar/jscodeshift-docs/blob/master/es7.md)
 
 ## Reference
  - [jscodeshift](https://github.com/facebook/jscodeshift)
+ - [ast-types](https://github.com/benjamn/ast-types)
+ - [AST Definitions](https://github.com/benjamn/ast-types/tree/master/def)
+ - [awesome-ast](https://github.com/cowchimp/awesome-ast)
